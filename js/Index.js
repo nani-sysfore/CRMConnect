@@ -1,11 +1,11 @@
 /// <reference path="adal.js" />
 
 var user, authContext, errorMessage;
-var organizationURI = <Add your organizationURI>;
+var organizationURI = "https://cirrusdemo.crm11.dynamics.com";
 (function () {
-    var tenant = <add your tenant>; 
-    var clientId = <Add your Client Id>; 
-    var pageUrl = <Add your Reply URL>;
+    var tenant = "cirrusdemo.onmicrosoft.com"; 
+    var clientId = "13affba6-c028-4974-a8a7-41faf1a1ef9e"; 
+    var pageUrl = "http://crmconnector.azurewebsites.net/";
 
     var endpoints = {
         orgUri: organizationURI
