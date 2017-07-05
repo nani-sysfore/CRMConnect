@@ -20,6 +20,7 @@ var organizationURI = "https://cirrusdemo.crm11.dynamics.com";
     };
     authContext = new AuthenticationContext(config);
     authenticate();
+    login();
     document.getElementById('login').addEventListener('click', function () {
         login();
     })
