@@ -53,6 +53,7 @@ function authenticate() {
     if(user)
     {
         displayLogin();
+        getCrmUrl();
     }
 }
 function login() {
