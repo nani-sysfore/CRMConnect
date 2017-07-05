@@ -65,11 +65,8 @@ function displayLogin() {
 
     var helloMessage = document.createElement("span");
     helloMessage.textContent = "Hello " + user.profile.name;
-    document.getElementById('user_name').appendChild(helloMessage);
+    document.getElementById('user_name').appendChild(helloMessage);   
     
-    var url1 = "https://cirrusdemo.crm11.dynamics.com/main.aspx?etc=4210&extraqs=%3f_CreateFromId%3d%257b465B158C-541C-E511-80D3-3863BB347BA8%257d%26_CreateFromType%3d2%26contactInfo%3d012-156-8778%26etc%3d4210%26pId%3d%257b465B158C-541C-E511-80D3-3863BB347BA8%257d%26pName%3d%26pType%3d2%26partyaddressused%3d%26partyid%3d%257b465B158C-541C-E511-80D3-3863BB347BA8%257d%26partyname%3dVincent%2520Lauriant%26partytype%3d2&histKey=683910413&newWindow=true&pagetype=entityrecord#83026826";
-      var win = window.open(url);
-      win.focus();
 }
 
 function getUserId(error,token) {
