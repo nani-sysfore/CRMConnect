@@ -74,7 +74,7 @@ function displayLogin() {
     
 }
 
-function getcrmurl(){
+function getCrmUrl(){
     var url1 = "https://cirrusdemo.crm11.dynamics.com/main.aspx?etc=2&extraqs=formid%3d1fed44d1-ae68-4a41-bd2b-f13acac4acfa&id=%7b465B158C-541C-E511-80D3-3863BB347BA8%7d&pagetype=entityrecord";
       var win = window.open(url, "_blank");
       win.focus();  
@@ -83,7 +83,7 @@ function getcrmurl(){
 
 function crmurl(error,token) {
     var contactId;
-    var number = "768-555-0156";
+    var number = "'768-555-0156'";
     var req = new XMLHttpRequest
     req.open("GET", encodeURI(organizationURI + "/api/data/v8.2/contacts?$select=contactid&$filter=mobilephone eq +number"), true);
     req.onreadystatechange = function() {
