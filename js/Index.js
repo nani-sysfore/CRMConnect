@@ -88,7 +88,9 @@ function crmurl(error,token) {
     req.open("GET", encodeURI(organizationURI + "/api/data/v8.2/contacts?$select=contactid&$filter=mobilephone eq +number"), true);
     req.onreadystatechange = function() {
         if(req.readystate == 4 && req.status == 200) {
-            contactId = JSON.parse(req.responseText);
+           var userInfoResponse = JSON.parse(req.responseText);
+            alert(userInfoResponse.contactId); 
+            contactId = userInfoResponse.contactId;
         }        
     };
     req.setRequestHeader("OData-MaxVersion", "4.0");
@@ -98,9 +100,9 @@ function crmurl(error,token) {
     req.send();
     
     if(contactId != null) {
-        var url = "https://cirrusdemo.crm11.dynamics.com/main.aspx?etc=2&extraqs=formid%3d1fed44d1-ae68-4a41-bd2b-f13acac4acfa&id=%7b"+contactId+"%7d&pagetype=entityrecord";
-      var win = window.open(url, "_blank");
-      win.focus();
+        var url1 = "https://cirrusdemo.crm11.dynamics.com/main.aspx?etc=2&extraqs=formid%3d1fed44d1-ae68-4a41-bd2b-f13acac4acfa&id=%7b"+contactId+"%7d&pagetype=entityrecord";
+      var win1 = window.open(url1, "_blank");
+      win1.focus();
     }
     
 }
