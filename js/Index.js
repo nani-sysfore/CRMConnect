@@ -30,7 +30,7 @@ var organizationURI = "https://cirrusdemo.crm11.dynamics.com";
         authContext.logOut();
     })
     document.getElementById('crmurl').addEventListener('click', function () {
-        getCrmUrl();
+        authContext.acquireToken(organizationURI, crmurl)
     })
 
 })();
@@ -72,6 +72,12 @@ function displayLogin() {
     document.getElementById('user_name').appendChild(helloMessage); 
     
     
+}
+
+function getcrmurl(){
+    var url1 = "https://cirrusdemo.crm11.dynamics.com/main.aspx?etc=2&extraqs=formid%3d1fed44d1-ae68-4a41-bd2b-f13acac4acfa&id=%7b465B158C-541C-E511-80D3-3863BB347BA8%7d&pagetype=entityrecord";
+      var win = window.open(url, "_blank");
+      win.focus();  
 }
 
 
