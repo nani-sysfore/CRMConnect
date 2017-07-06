@@ -30,7 +30,7 @@ var organizationURI = "https://cirrusdemo.crm11.dynamics.com";
         authContext.logOut();
     })
     document.getElementById('crmurl').addEventListener('click', function () {
-        authContext.acquireToken(organizationURI, crmurl)
+        crmurl();
     })
 
 })();
@@ -81,7 +81,7 @@ function getCrmUrl(){
 }
 
 
-function crmurl(error,token) {
+function crmurl() {
     var contactId;
     var number = "'768-555-0156'";
     var req = new XMLHttpRequest
@@ -96,7 +96,7 @@ function crmurl(error,token) {
     req.setRequestHeader("OData-MaxVersion", "4.0");
     req.setRequestHeader("OData-Version", "4.0");
     req.setRequestHeader("Accept", "application/json");
-    req.setRequestHeader("Authorization", "Bearer " + token);
+    req.setRequestHeader("Authorization", "Bearer " + authContext.getCachedToken(organizationURI));
     req.send();
     
     if(contactId != null) {
