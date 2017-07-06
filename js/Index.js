@@ -74,18 +74,34 @@ function displayLogin() {
     
 }
 
-function getCrmUrl() {
+
+function crmurl(error,token) {
+    var contactId;
+    var number = "135-548-8797";
+    var req = new XMLHttpRequest
+    req.open("GET", encodeURI(organizationURI + "/api/data/v8.2/contacts?$select=contactid&$filter=mobilephone eq +number"), true);
+    req.onreadystatechange = function() {
+        if(req.readystate == 4 && req.status == 200) {
+            contactId = JSON.parse(req.responseText);
+        }        
+    };
+    req.setRequestHeader("OData-MaxVersion", "4.0");
+    req.setRequestHeader("OData-Version", "4.0");
+    req.setRequestHeader("Accept", "application/json");
+    req.setRequestHeader("Authorization", "Bearer " + token);
+    req.send();
     
-    var url = "https://cirrusdemo.crm11.dynamics.com/main.aspx?etc=2&extraqs=formid%3d1fed44d1-ae68-4a41-bd2b-f13acac4acfa&id=%7b465B158C-541C-E511-80D3-3863BB347BA8%7d&pagetype=entityrecord";
-      var url1 = "https://cirrusdemo.crm11.dynamics.com/main.aspx?etc=4210&extraqs=%3f_CreateFromId%3d%257b465B158C-541C-E511-80D3-3863BB347BA8%257d%26_CreateFromType%3d2%26contactInfo%3d012-156-8778%26etc%3d4210%26pId%3d%257b465B158C-541C-E511-80D3-3863BB347BA8%257d%26pName%3d%26pType%3d2%26partyaddressused%3d%26partyid%3d%257b465B158C-541C-E511-80D3-3863BB347BA8%257d%26partyname%3dVincent%2520Lauriant%26partytype%3d2&histKey=683910413&newWindow=true&pagetype=entityrecord#83026826";
+    if(contactId != null) {
+        var url1 = "https://cirrusdemo.crm11.dynamics.com/main.aspx?etc=2&extraqs=formid%3d1fed44d1-ae68-4a41-bd2b-f13acac4acfa&id=%7b"+contactId+"%7d&pagetype=entityrecord";
       var win = window.open(url, "_blank");
       win.focus();
+    }
     
 }
 
 function getUserId(error,token) {
     var req = new XMLHttpRequest
-    req.open("GET", encodeURI(organizationURI + "/api/data/v8.0/WhoAmI"), true);
+    req.open("GET", encodeURI(organizationURI + "/api/data/v8.2/WhoAmI"), true);
     req.onreadystatechange = function () {
         if (req.readyState == 4 && req.status == 200) {
             var whoAmIResponse = JSON.parse(req.responseText);
