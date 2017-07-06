@@ -85,7 +85,7 @@ function crmurl(error,token) {
     var contactId;
     var number = "'768-555-0156'";
     var req = new XMLHttpRequest
-    req.open("GET", encodeURI(organizationURI + "/api/data/v8.2/contacts?$select=contactid&$filter=mobilephone eq +number"), true);
+    req.open("GET", encodeURI(organizationURI + "/api/data/v8.2/contacts?$select=contactid&$filter=mobilephone eq '768-555-0156'"), true);
     req.onreadystatechange = function() {
         if(req.readystate == 4 && req.status == 200) {
            var userInfoResponse = JSON.parse(req.responseText);
