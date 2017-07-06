@@ -53,7 +53,7 @@ function authenticate() {
     if(user)
     {
         displayLogin();
-        getCrmUrl();
+        //getCrmUrl();
     }
 }
 function login() {
@@ -89,8 +89,8 @@ function crmurl(error,token) {
     req.onreadystatechange = function() {
         if(req.readystate == 4 && req.status == 200) {
            var userInfoResponse = JSON.parse(req.responseText);
-            alert(userInfoResponse.contactId); 
-            contactId = userInfoResponse.contactId;
+            alert(userInfoResponse.contactid); 
+            contactId = userInfoResponse.contactid;
         }        
     };
     req.setRequestHeader("OData-MaxVersion", "4.0");
