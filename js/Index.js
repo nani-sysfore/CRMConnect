@@ -1,9 +1,9 @@
 /// <reference path="adal.js" />
 
 var user, authContext, errorMessage;
-var organizationURI = "https://cirrusdemo.crm11.dynamics.com";
+var organizationURI = "https://cirrusdev.crm.dynamics.com";
 (function () {
-    var tenant = "cirrusdemo.onmicrosoft.com"; 
+    var tenant = "cirrusdev.onmicrosoft.com"; 
     var clientId = "13affba6-c028-4974-a8a7-41faf1a1ef9e"; 
     var pageUrl = "http://crmconnector.azurewebsites.net/";
 
@@ -53,7 +53,7 @@ function authenticate() {
     if(user)
     {
         displayLogin();
-        //getCrmUrl();
+        getCrmUrl();
     }
 }
 function login() {
@@ -76,7 +76,8 @@ function displayLogin() {
 
 function getCrmUrl(){
     var url = "https://cirrusdemo.crm11.dynamics.com/main.aspx?etc=2&extraqs=formid%3d1fed44d1-ae68-4a41-bd2b-f13acac4acfa&id=%7b465B158C-541C-E511-80D3-3863BB347BA8%7d&pagetype=entityrecord";
-      var win = window.open(url, "_blank");
+    var url1 = "https://cirrusdev.crm.dynamics.com/main.aspx?etn=cirrus_cadcinboundcall&pagetype=entityrecord&extraqs=cirrus_searchtext%3Ddatum&navbar=off&cmdbar=false";  
+    var win = window.open(url1, "_blank");
       win.focus();  
 }
 
